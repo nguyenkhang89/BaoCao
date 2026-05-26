@@ -13,20 +13,71 @@
     <div class="card p-4 shadow-sm">
         <div class="row align-items-center">
             <div class="col-md-4 text-center">
-                <img src="assets/images/gundam-wing.jpg" class="img-fluid rounded border" alt="Gundam">
+                <img id="product-img" src="assets/images/gundam-wing.jpg" class="img-fluid rounded border" alt="Gundam">
             </div>
             <div class="col-md-8">
-                <h2 class="fw-bold text-dark">GunDam Wing Zero Custom</h2>
-                <h4 class="text-danger my-3">Giá: 1.000.000đ</h4>
+                <h2 id="product-title" class="fw-bold text-dark">GunDam Wing</h2>
+                <h4 id="product-price" class="text-danger my-3">Giá: 1.000.000đ</h4>
+                
                 <p class="fw-bold mb-1">Mô tả sản phẩm:</p>
-                <p class="text-secondary">
-                    Mô hình Gunpla chất lượng cao, độ chi tiết sắc nét, các khớp linh hoạt dễ dàng tạo dáng. Phù hợp cho việc trưng bày và sưu tầm.
+                <p id="product-desc" class="text-secondary">
+                    Đoạn mô tả mặc định.
                 </p>
                 <button class="btn btn-primary mt-3 px-4">Thêm vào giỏ hàng</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    // 1. Lấy ID từ thanh địa chỉ (URL) về để kiểm tra xem người dùng đang xem con nào
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    // 2. Lấy các thẻ HTML cần thay đổi nội dung xuống script
+    const imgElement = document.getElementById("product-img");
+    const titleElement = document.getElementById("product-title");
+    const priceElement = document.getElementById("product-price");
+    const descElement = document.getElementById("product-desc");
+
+    // 3. Kiểm tra bằng cấu trúc rẽ nhánh (if/else if), trúng con nào đổi nội dung con đó
+    if (productId === "01") {
+        imgElement.setAttribute("src", "assets/images/gundam-wing.jpg");
+        titleElement.textContent = "GunDam Wing";
+        priceElement.textContent = "Giá: 1.000.000đ";
+        descElement.textContent = "Điểm mạnh lớn nhất của dòng Wing chính là đôi cánh thiên thần cơ động bằng nhựa cao cấp, có thể xòe rộng hoặc khép lại bao bọc lấy thân người cực kỳ uyển chuyển. Mô hình đi kèm khẩu súng Twin Buster Rifle siêu dài độc quyền, mang lại vẻ đẹp vừa lãng mạn vừa mạnh mẽ khi trưng bày.";
+    } 
+    else if (productId === "02") {
+        imgElement.setAttribute("src", "assets/images/gundam-unicorn.jpg");
+        titleElement.textContent = "GunDam Unicorn";
+        priceElement.textContent = "Giá: 1.500.000đ";
+        descElement.textContent = "Sở hữu hệ thống khung xương Psycho-Frame màu đỏ nổi bật phát quang (Clear Part). Điểm đặc biệt của mô hình này là cơ chế chuyển đổi đỉnh cao giữa dạng Unchained bọc giáp kín kẽ sang dạng Destroy Mode để lộ toàn bộ phần xương đỏ rực cực kỳ hầm hố mà không cần tháo rời các chi tiết.";
+    } 
+    else if (productId === "03") {
+        imgElement.setAttribute("src", "assets/images/gundam-exia.jpg");
+        titleElement.textContent = "GunDam Exia";
+        priceElement.textContent = "Giá: 1.200.000đ";
+        descElement.textContent = "Được mệnh danh là chuyên gia cận chiến với bộ vũ khí 'Seven Swords' (7 thanh kiếm) hoành tráng đi kèm. Thiết kế của Exia tập trung vào các dải dây dẫn năng lượng chạy dọc cơ thể, mang lại biên độ cử động khớp chân, khớp vai cực rộng, dễ dàng tái hiện lại các tư thế múa kiếm cực gắt.";
+    } 
+    else if (productId === "04") {
+        imgElement.setAttribute("src", "assets/images/gundam-barbatos.jpg");
+        titleElement.textContent = "GunDam Barbatos";
+        priceElement.textContent = "Giá: 950.000đ";
+        descElement.textContent = "Mang phong cách chiến binh hoang dã với bộ khung xương cơ khí (Gundam Frame) lộ rõ ở vùng eo rất cơ bắp. Vũ khí đi kèm không phải là súng laser thông thường mà là cây chùy khổng lồ Mace bằng nhựa đặc nặng trịch, tạo nên chất bạo lực, phong trần rất riêng biệt so với các dòng khác.";
+    } 
+    else if (productId === "05") {
+        imgElement.setAttribute("src", "assets/images/gundam-astray.jpg");
+        titleElement.textContent = "GunDam Astray Red Frame";
+        priceElement.textContent = "Giá: 1.100.000đ";
+        descElement.textContent = "Gây ấn tượng mạnh bởi thanh kiếm Nhật Katana 'Gerbera Straight' được mạ bạc sáng loáng cùng bao kiếm tinh xảo đi kèm. Sự kết hơp giữa công nghệ robot viễn tưởng và tinh thần võ sĩ đạo Samurai mang lại cho mô hình này những dáng đứng rút kiếm, chém ngang vô cùng nghệ thuật.";
+    } 
+    else if (productId === "06") {
+        imgElement.setAttribute("src", "assets/images/gundam-strike.jpg");
+        titleElement.textContent = "GunDam Strike Freedom";
+        priceElement.textContent = "Giá: 1.800.000đ";
+        descElement.textContent = "Là mẫu mô hình sang chảnh bậc nhất với bộ cánh phi thuyền hộ tống (Super DRAGOON) có thể tách rời. Toàn bộ các khớp nối bên trong và hệ thống phản lực đều được đúc bằng nhựa màu vàng ánh kim (Gold), tạo nên vẻ đẹp hoàng gia đầy quyền lực và lộng lẫy khi đặt trên bàn học.";
+    }
+</script>
 
 </body>
 </html>
